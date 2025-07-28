@@ -13,9 +13,13 @@ Some other things we tried to find differences across the political leanings wer
 
 ## Techniques Used
 **Bag of Words Model:** We used CountVectorizer to tokenize the titles and content of our articles. The bag of words vectors acted as our list of features for each article. Each unique word in the corpus of documents adds another feature to the list of features.
+
 **TF-IDF:** In order to reduce the impact that words highly used across all articles have on the distance measures of our political article points, we used TF-IDF. We evaluated our classifiers and clustering attempts with and without TF-IDF.
+
 **KNN Classification:** KNN acted as our main classifier technique which uses the word vectors of each article as the representation of each article in space. When testing the classifier, the point being added measures its distance (with cosine similarity) with all of the word vectors of existing political articles and picks the k articles with the closest distance. The new article is classified based on the majority of the k articles closen.
+
 **K-means Clustering:** K-means clustering gives us a means through which we can try to find similarities or patterns among the articles within our dataset without needing to leverage their labeled political leanings. K-means clustering does not visualize well with the large feature vectors that the bag of words model generates. As a result, we tried to carry out k-means clustering with non-word features, such as rhetorical question usage.
+
 **DBSCAN:** DBSCAN is a density based clustering, unsupervised method where the algorithm can cluster non-convex shapes. The algorithm iteratively expands the cluster by going through each individual data point within the cluster. DBSCAN was applied using the bag-of-words and tf-idf vectors. DBSCAN was also used to cluster non-word features like article length.
 
 ## Video Presentation
