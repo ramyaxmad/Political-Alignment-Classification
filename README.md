@@ -25,6 +25,24 @@ Some other things we tried to find differences across the political leanings wer
 ## Video Presentation
 https://github.com/user-attachments/assets/ca1c667e-0f80-47e7-aa8b-4d75cd9c024d
 
+## Libraries used:
+
+**WordCloud:** A visualization tool that creates an image composed of words, where the size of each word indicates its frequency or importance in the text data. It's useful for getting a quick sense of the most common terms in a document.
+
+**VADER (Valence Aware Dictionary and sEntiment Reasoner):** A rule-based sentiment analysis tool specifically tuned for social media and short texts. It classifies text sentiment as positive, negative, or neutral and returns a compound score indicating overall sentiment.
+
+**DistilBERT:** A lightweight, faster version of BERT (Bidirectional Encoder Representations from Transformers) developed by Hugging Face. It retains 97% of BERT’s performance while being smaller and more efficient, making it suitable for NLP tasks like classification, sentiment analysis, and more.
+
+**BeautifulSoup:** A Python library used for parsing HTML and XML documents. It enables easy extraction of data from web pages, often used in web scraping projects.
+
+**pandas:** A powerful Python library for data manipulation and analysis. It provides data structures like DataFrames and Series to handle structured data efficiently.
+
+**requests:** A Python library used to send HTTP/1.1 requests easily. It is commonly used for accessing APIs or retrieving web content (e.g., HTML pages for scraping).
+
+**sklearn (scikit-learn):** A widely-used machine learning library in Python that provides tools for data preprocessing, classification, regression, clustering (like K-means and DBSCAN), model selection, and evaluation.
+
+**DBSCAN (Density-Based Spatial Clustering of Applications with Noise):** An unsupervised clustering algorithm in scikit-learn that groups together data points that are closely packed together and marks outliers as noise. It's useful for discovering clusters in data without needing to specify the number of clusters in advance.
+
 ## Conclusion
 After running all of our techniques, we were not able to effectively cluster the political articles into clusters that resembled the general political leanings of each news outlet. We found that unsupervised learning techniques come up short when working with large vectors of features (the bag of words and TF-IDF vectors) because points are very sparse from each other. We observed this through the DB Scan process because the technique found a large number of noise points when using the bag of words and TF-IDF vectors as features while finding a much lower proportion of noise founds when running DB Scan on the numerical features of articles.
 When we tried the KNN classifier, we found a bit better results when classifying left and right articles but found very low accuracy when classifying center articles. This leads us to believe that the center articles do not vary enough from the left and right political leanings to effectively classify them. In addition, the presence of the central articles bridges the gap between left and right articles which makes natural clusters harder to form and leads to more error in KNN classification. We tested out this theory by testing out our KNN classifier on podcasts that are either extreme left or extreme right. Our classifer was able to correctly classify the podcast scripts we tested out which suggests that our classifier has a harder time classifying articles that do not lean far toward one side.
